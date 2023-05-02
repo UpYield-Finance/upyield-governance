@@ -7,11 +7,11 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 
-contract YieldFinanceCoin is ERC20, ERC20Burnable, Pausable, AccessControl, ERC20Permit {
+contract UpYieldGovernanceToken is ERC20, ERC20Burnable, Pausable, AccessControl, ERC20Permit {
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-  constructor() ERC20("Yield Finance Coin", "YFC") ERC20Permit("YieldFinanceCoin") {
+  constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) ERC20Permit("UpYieldGovernanceToken") {
     _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     _grantRole(PAUSER_ROLE, msg.sender);
     _grantRole(MINTER_ROLE, msg.sender);

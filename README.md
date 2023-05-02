@@ -16,6 +16,11 @@ The project uses Hardhat framework.
 * Compile: ```yarn compile```
 * Run tests: ```yarn test```
 
+Deployment to local network
+* Start a local Hardhat node: ```npx hardhat node```
+* Deploy ```yarn deploy:local```
+
+
 In order to deploy to a live network, you need a private key and a node endpoint. Currently, hardhat.config.js is configured to use Infura.
-* Deploy: ```npx hardhat run scripts/deploy-token.js --network <network name>```
+* Deploy: ```npx hardhat run scripts/deployment.js --network <network name>```
 

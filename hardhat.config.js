@@ -5,6 +5,13 @@ require('dotenv').config();
 require("solidity-coverage");
 require('hardhat-contract-sizer');
 require("hardhat-gas-reporter");
+const {task} = require("hardhat/config");
+const deployment = require("./scripts/deployment");
+
+task("deploy:all", "Deploy all contracts")
+    .addParam("name", "Token name")
+    .addParam("symbol", "Token symbol")
+    .setAction(deployment.deployAll);
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -36,13 +43,17 @@ module.exports = {
       accounts: [process.env.WALLET_PK]
     },
     arbitrum_goerli: {
-      chainId: 137,
+      chainId: 421613,
       url: `https://arbitrum-goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      apiURL: 'https://api-testnet.arbiscan.io/api',
+      browserURL: 'https://testnet.arbiscan.io/',
       accounts: [process.env.WALLET_PK]
     },
     arbitrum: {
-      chainId: 137,
+      chainId: 42161,
       url: `https://arbitrum-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      apiURL: 'https://api.arbiscan.io/api',
+      browserURL: 'https://arbiscan.io/',
       accounts: [process.env.WALLET_PK]
     },
     hardhat: {

@@ -1,5 +1,5 @@
 {
-  "name": "yieldfi-governance",
+  "name": "upyield-governance",
   "description": "",
   "version": "1.0.0",
   "main": "hardhat.config.js",
@@ -11,8 +11,9 @@
   },
   "scripts": {
     "compile": "npx hardhat compile",
-    "deploy:local": "npx hardhat run scripts/deploy-svc.js --network hardhat",
-    "etherscan-verify": "npx hardhat verify --network",
+    "deploy:local": "npx hardhat deploy:all --name 'UpYield Governance Token' --symbol YEP --network localhost",
+    "deploy:testnet": "npx hardhat deploy:all --name 'UpYield Governance Token' --symbol YEP --network arbitrum_goerli",
+    "verify:testnet": "npx hardhat verify --network arbitrum_goerli",
     "test": "npx hardhat test",
     "coverage": "npx hardhat coverage"
   },
