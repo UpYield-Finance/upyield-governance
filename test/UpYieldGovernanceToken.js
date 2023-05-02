@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("Sport Value Coin", function () {
+describe("UpYiled Governance Token", function () {
     let owner
     let user1
     let Token
@@ -9,11 +9,11 @@ describe("Sport Value Coin", function () {
 
     before(async () => {
         [owner, user1] = await ethers.getSigners();
-        Token = await ethers.getContractFactory("YieldFinanceCoin");
+        Token = await ethers.getContractFactory("UpYieldGovernanceToken");
     });
 
     beforeEach(async () => {
-        token = await Token.deploy();
+        token = await Token.deploy('UpYieldGovernanceToken','YEP');
         await token.deployed();
         await token.mint(owner.address, 100);
     });
