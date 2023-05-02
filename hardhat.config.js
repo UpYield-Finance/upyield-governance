@@ -32,6 +32,13 @@ module.exports = {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
       accounts: [process.env.WALLET_PK]
     },
+    goerli: {
+      chainId: 5,
+      url: `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      accounts: [process.env.WALLET_PK],
+      apiURL: 'https://api-goerli.etherscan.io/api',
+      browserURL: 'https://goerli.etherscan.io/'
+    },
     mumbai: {
       chainId: 80001 ,
       url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API_KEY}`,
