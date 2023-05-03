@@ -11,10 +11,11 @@ contract UpYieldGovernanceToken is ERC20, ERC20Burnable, Pausable, AccessControl
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-  constructor(string memory name_, string memory symbol_) ERC20(name_, symbol_) ERC20Permit("UpYieldGovernanceToken") {
+  constructor(string memory name_, string memory symbol_, uint initialSupply_) ERC20(name_, symbol_) ERC20Permit("UpYieldGovernanceToken") {
     _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     _grantRole(PAUSER_ROLE, msg.sender);
     _grantRole(MINTER_ROLE, msg.sender);
+    _mint(_msgSender(),initialSupply_);
   }
 
   function pause() public onlyRole(PAUSER_ROLE) {

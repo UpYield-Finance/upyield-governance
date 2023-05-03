@@ -3,7 +3,7 @@ const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { ethers } = require("hardhat");
 const { expect } = require("chai");
 
-describe("TokenVesting", function () {
+describe("UpYieldTokenVesting", function () {
     let Token;
     let testToken;
     let TokenVesting;

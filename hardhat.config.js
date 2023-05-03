@@ -25,7 +25,9 @@ module.exports = {
     sepolia: {
       chainId: 11155111,
       url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.WALLET_PK]
+      accounts: [process.env.WALLET_PK],
+      apiURL: 'https://api-sepolia.etherscan.io/api',
+      browserURL: 'https://sepolia.etherscan.io/'
     },
     mainnet: {
       chainId: 1,

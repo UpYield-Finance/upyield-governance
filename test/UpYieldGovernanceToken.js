@@ -13,9 +13,8 @@ describe("UpYiled Governance Token", function () {
     });
 
     beforeEach(async () => {
-        token = await Token.deploy('UpYieldGovernanceToken','YEP');
+        token = await Token.deploy('UpYieldGovernanceToken','YEP',100);
         await token.deployed();
-        await token.mint(owner.address, 100);
     });
 
     describe('Deployment', () => {
