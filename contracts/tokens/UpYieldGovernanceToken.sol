@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 
 contract UpYieldGovernanceToken is ERC20, ERC20Burnable, Pausable, AccessControl, ERC20Permit {
+  uint public constant MAX_SUPPLY = 1_000_000_000*1e18;
   bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
@@ -27,6 +28,7 @@ contract UpYieldGovernanceToken is ERC20, ERC20Burnable, Pausable, AccessControl
   }
 
   function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
+    require(totalSupply()+amount<MAX_SUPPLY,"You can't mint more than MAX_SUPPLY");
     _mint(to, amount);
   }
 

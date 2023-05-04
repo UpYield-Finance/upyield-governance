@@ -30,7 +30,7 @@ describe("UpYiled Governance Token", function () {
     describe('transfer', () => {
         it("should transfer tokens", async function () {
             const ownerBalanceBefore = await token.balanceOf(owner.address);
-            await token.transfer(user1.address, 1)
+            await token.transfer(user1.address, 1);
             const ownerBalanceAfter = await token.balanceOf(owner.address);
             const userBalanceAfter = await token.balanceOf(user1.address);
             expect(ownerBalanceAfter).to.equal(ownerBalanceBefore - 1)
@@ -62,6 +62,12 @@ describe("UpYiled Governance Token", function () {
         it("should revert unauthorised minters", async function () {
             const totalSupplyBefore = await token.totalSupply();
             await expect(token.connect(user1).mint(owner.address, 100)).to.be.revertedWith('AccessControl: account 0x70997970c51812dc3a010c7d01b50e0d17dc79c8 is missing role 0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6');
+            expect(await token.totalSupply()).to.equal(totalSupplyBefore)
+        })
+
+        it("should revert if trying to mint more than max supply", async function () {
+            const totalSupplyBefore = await token.totalSupply();
+            await expect(token.mint(owner.address, ethers.utils.parseEther('1000000000'))).to.be.revertedWith("You can't mint more than MAX_SUPPLY");
             expect(await token.totalSupply()).to.equal(totalSupplyBefore)
         })
     })
