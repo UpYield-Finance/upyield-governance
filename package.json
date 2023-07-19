@@ -13,6 +13,7 @@
     "compile": "npx hardhat compile",
     "deploy:local": "npx hardhat deploy:all --name 'UpYield Governance Token' --symbol YEP --network localhost",
     "deploy:testnet": "npx hardhat deploy:all --name 'UpYield Governance Token' --symbol YEP --network sepolia",
+    "deploy:mumbai": "npx hardhat deploy:all --name 'UpYield Governance Token' --symbol YEP --network mumbai",
     "verify:testnet": "npx hardhat verify --network sepolia",
     "test": "npx hardhat test",
     "coverage": "npx hardhat coverage"

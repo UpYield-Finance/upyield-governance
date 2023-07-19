@@ -44,12 +44,16 @@ module.exports = {
     mumbai: {
       chainId: 80001 ,
       url: `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.WALLET_PK]
+      accounts: [process.env.WALLET_PK],
+      apiURL: 'https://api-testnet.polygonscan.com/api',
+      browserURL: 'https://mumbai.polygonscan.com/'
     },
     polygon: {
       chainId: 137,
       url: `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      accounts: [process.env.WALLET_PK]
+      accounts: [process.env.WALLET_PK],
+      apiURL: 'https://api.polygonscan.com/api',
+      browserURL: 'https://polygonscan.com/'
     },
     arbitrum_goerli: {
       chainId: 421613,
